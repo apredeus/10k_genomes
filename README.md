@@ -19,7 +19,11 @@ Data in the project were generated using Nextera library preparation and 2x150 b
 * MLST prediction using [mlst](https://github.com/tseemann/mlst); 
 * Serovar prediction using [SISTR](https://github.com/peterk87/sistr_cmd) (*Salmonella* only); 
 * Resistance and virulence gene profiling using [abricate](https://github.com/tseemann/abricate); 
-* Final quality control based on [Enterobase criteria](https://enterobase.readthedocs.io/en/latest/pipelines/backend-pipeline-qaevaluation.html) (with modifications - see below). 
+* Final quality control based on [Enterobase criteria](https://enterobase.readthedocs.io/en/latest/pipelines/backend-pipeline-qaevaluation.html) (with modifications - see below).
+
+## Parallel execution
+
+All scripts used here dedicated to execution of one task for one sample (e.g. *one_unicycler.sh*) have a parallel wrapper (*all_unicycler.sh* for this example). Adjust the number of parallel jobs according to the system that you are running this on. 
 
 ## Assembly quality control 
 
@@ -27,7 +31,7 @@ All assemblies were classified according to the following scheme:
 
 * If an assembly has passed Enterobase criteria for the appropriate species, it was classified as **PASS**; 
 * If an assembly has satisfied one of the two conditions listed below, it was classified as **RESCUE**: 
-    * passes relaxed Enterobase criteria: 4M < (length) < 5.8M, N50 > 10,000, n_contigs < 2,000; 
+    * passes relaxed Enterobase criteria: 4M < (length) < 5.8M, species 90%+, N50 > 10,000, n_contigs < 2,000; 
     * or, passes Enterobase criteria if assembly is ran on a subset of reads identified as *Salmonella* by Kraken2 (for impure samples); 
 * If assembly does not satisfy any of the above criteria, it is classified as **FAIL**. 
 
