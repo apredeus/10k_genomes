@@ -33,11 +33,15 @@ All assemblies were classified according to the following scheme:
 * If an assembly has satisfied one of the two conditions listed below, it was classified as **RESCUE**: 
     * passes relaxed Enterobase criteria: 4M < (length) < 5.8M, species 90%+, N50 > 10,000, n_contigs < 2,000; 
     * or, passes Enterobase criteria if assembly is ran on a subset of reads identified as *Salmonella* by Kraken2 (for impure samples); 
-* If assembly does not satisfy any of the above criteria, it is classified as **FAIL**. 
+* If assembly does not satisfy any of the above criteria, it is classified as **FAIL**.
+
+<img src="https://github.com/apredeus/10k_genomes/blob/master/img/10k_genomes_qc_V3.png"> 
 
 ## Notes on adapter trimming 
 
 Using Nextera protocol makes it harder to control insert size, often resulting in adapter being present in the final reads. We have compared several strategies of adapter trimming, including Trimmomatic palindromic mode and bbduk. Bbduk has shown the highest contiguity and fastest processing time.  
+
+<img src="https://github.com/apredeus/10k_genomes/blob/master/img/n50.png">
 
 ## Circular replicon rotation 
 
