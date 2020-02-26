@@ -61,11 +61,11 @@ then
     then 
       # case 1
       seqtk seq -l 0 $TAG.revcomp.fa > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     else 
       # case 2 
       seqtk seq -l 0 $TAG.revcomp.fa > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     fi 
   else 
     echo "Reference gene maps onto \"-\" strand, is required to map to \"-\"; continuing!"
@@ -74,11 +74,11 @@ then
     then 
       # case 3
       seqtk seq -l 0 $FA > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     else 
       # case 4 
       seqtk seq -l 0 $FA > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     fi
   fi
 else  ## $BEG < $END 
@@ -91,11 +91,11 @@ else  ## $BEG < $END
     then 
       # case 5
       seqtk seq -l 0 $FA > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     else 
       # case 6 
       seqtk seq -l 0 $FA > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     fi 
   else 
     echo "Reference gene maps onto \"+\" strand, but is required to map to \"-\"; generating revcomp!"
@@ -111,11 +111,11 @@ else  ## $BEG < $END
     then 
       # case 7
       seqtk seq -l 0 $TAG.revcomp.fa > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,l+1,L-l),substr($0,1,l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     else 
       # case 8 
       seqtk seq -l 0 $TAG.revcomp.fa > $TAG.unfolded.fa
-      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 > $TAG.rotated.fa
+      awk -v l=$LEN '{if (/^>/) {print $1} else {L=length($0); printf "%s%s\n",substr($0,L+l+1,-l),substr($0,1,L+l)}}' $TAG.unfolded.fa | seqtk seq -l 80 - > $TAG.rotated.fa
     fi 
   fi
 fi 
