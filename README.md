@@ -4,7 +4,7 @@ Efficient data processing for 10k Salmonella genomes project
 
 ## Data description
 
-The project had the goal of genome sequencing invasive non-typhod Salmonella on a large scale. While most (~7000) of the isolates were *Salmonella enterica*, collaborators also provided *Shigella* (~2000 isolates), *Staphylococcus aureus* (~400 isolates), as well as some other species.  
+The project had the goal of genome sequencing invasive non-typhoid Salmonella on a large scale. While most (~7000) of the isolates were *Salmonella enterica*, collaborators also provided *Shigella* (~2000 isolates), *Staphylococcus aureus* (~400 isolates), as well as some other species.  
 
 Data in the project were generated using a modified Nextera library preparation approach (the LITE protocol) and 2x150 bp Illumina sequencing on HiSeq 4000. Details will be published soon (Perez-Sepulveda et al 2020). 
 
