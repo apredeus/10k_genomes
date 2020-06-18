@@ -4,7 +4,7 @@ Efficient data processing for 10k Salmonella genomes project
 
 ## Data description
 
-The project had the goal of genome sequencing invasive non-typhod Salmonella on a large scale. While most (~ 7000) of the isolates were *Salmonella enterica*, collaborators also provided *Shigella* (~ 2000 isolates), *Staphylococcus aureus* (~ 400 isolates), as well as some other species.  
+The project had the goal of genome sequencing invasive non-typhod Salmonella on a large scale. While most (~7000) of the isolates were *Salmonella enterica*, collaborators also provided *Shigella* (~2000 isolates), *Staphylococcus aureus* (~400 isolates), as well as some other species.  
 
 Data in the project were generated using a modified Nextera library preparation approach (the LITE protocol) and 2x150 bp Illumina sequencing on HiSeq 4000. Details will be published soon (Perez-Sepulveda et al 2020). 
 
@@ -45,13 +45,13 @@ All assemblies were classified according to the following scheme:
     * Or, passes Enterobase criteria if assembly is run on a subset of reads identified as *Salmonella* by Kraken2 (for impure samples); 
 * If assembly does not satisfy any of the above criteria, it is classified as **FAIL**.
 
-<img src="https://github.com/apredeus/10k_genomes/blob/master/img/10k_genomes_qc_V3.png"> 
+<p align="center"><img src="https://github.com/apredeus/10k_genomes/blob/master/img/10k_genomes_qc_V3.png"></p>
 
 ## Notes on adapter trimming 
 
 Using the Nextera protocol makes it difficult to control insert size, often resulting in adapter sequences being present in the final reads. We have compared several strategies of adapter trimming, including Trimmomatic palindromic mode and bbduk. Bbduk trimming resulted in the highest assembly contiguity and the fastest processing time.  
 
-<img src="https://github.com/apredeus/10k_genomes/blob/master/img/n50.png">
+<p align="center"><img src="https://github.com/apredeus/10k_genomes/blob/master/img/n50.png"></p>
 
 ## Circular replicon rotation 
 
