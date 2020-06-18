@@ -33,21 +33,18 @@ All assemblies were classified according to the following scheme:
 
 * If an assembly has passed slightly modified Enterobase criteria for the appropriate species, it was classified as **PASS**; These criteria for *Salmonella enterica* are: 
 
-  <center>
-
   | Metrics                            | Criteria             |
   |------------------------------------|----------------------|
   | Assembly length                    | 4.0-5.8Mb            |
   | N50 value                          | >20kb                |
   | Number of contigs                  | <600                 | 
   | Read assignment by Kraken2+Bracken | >70% correct species |
-  
-  </center>
 
 * Alternatively, if an assembly satisfied one of the two conditions listed below, it was classified as **RESCUE**: 
     * Passes relaxed Enterobase criteria: 4Mb < (length) < 5.8Mb, species 90%+, N50 > 10kb, n_contigs < 2,000; 
-    * Or, passes Enterobase criteria if assembly is run on a subset of reads identified as *Salmonella* by Kraken2 (for impure samples); 
+    * or, passes Enterobase criteria if assembly is run on a subset of reads identified as *Salmonella* by Kraken2 (for impure samples); 
 * If assembly does not satisfy any of the above criteria, it is classified as **FAIL**.
+
 
 <p align="center"><img src="https://github.com/apredeus/10k_genomes/blob/master/img/10k_genomes_qc_V3.png"></p>
 
