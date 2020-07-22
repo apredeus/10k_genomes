@@ -1,11 +1,12 @@
 #!/bin/bash 
 
-LIST=$1
-FADIR=/pub37/alexp/data/10k_genomes/V3_merged_analysis/8_fasta_to_send/fasta
+WDIR=$1
+LIST=sample.list
+FADIR=$WDIR/8_final_fasta
 
 if [[ $# < 1 ]]
 then
-  >&2 echo "Usage: ./all_n50.sh <barcode_list>"
+  >&2 echo "Usage: ./all_n50.sh <working dir>"
   exit 1
 fi
 

@@ -1,11 +1,12 @@
 #!/bin/bash 
 
-LIST=$1
-FQDIR=/pub37/alexp/data/10k_genomes/V3_merged_analysis/0_merged_fastq
+WDIR=$1
+LIST=sample.list
+FQDIR=$WDIR/0_merged_fastq
 
 if [[ $# < 1 ]]
 then
-  >&2 echo "Usage: ./all_coverage.sh <barcode_list>"
+  >&2 echo "Usage: ./all_coverage.sh <working dir>"
   exit 1
 fi
 

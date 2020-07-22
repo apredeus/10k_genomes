@@ -1,6 +1,6 @@
 # 10k Salmonella Genomes Project 
 
-Efficient data processing for 10k Salmonella genomes project
+Efficient data processing for [10k Salmonella genomes](https://10k-salmonella-genomes.com/) project
 
 ## Data description
 
@@ -21,7 +21,23 @@ Median sequencing depth was 30x; high-identity, low coverage samples were re-seq
 * MLST prediction using [mlst](https://github.com/tseemann/mlst); 
 * Serovar prediction using [SISTR](https://github.com/peterk87/sistr_cmd) (*Salmonella* only); 
 * Resistance and virulence gene profiling using [abricate](https://github.com/tseemann/abricate); 
+* Automated annotation using [Prokka](https://github.com/tseemann/prokka) (*Salmonella* only);
 * Final quality control based on [Enterobase criteria](https://enterobase.readthedocs.io/en/latest/pipelines/backend-pipeline-qaevaluation.html) (with modifications - see below).
+
+## Directory structure 
+
+Choose a working directory (`$WDIR` variable in scripts) with plenty of space. Within, create the following sub-directories: 
+
+* 0\_merged\_fastq
+* 1\_kraken2  
+* 2\_duplicates  
+* 3\_coverage\_etc  
+* 4\_assembly  
+* 5\_sistr  
+* 6\_MLST  
+* 7\_rescue  
+* 8\_final\_fasta
+* 9\_prokka
 
 ## Parallel execution
 
@@ -53,7 +69,3 @@ All assemblies were classified according to the following scheme:
 Using the Nextera protocol makes it difficult to control insert size, often resulting in adapter sequences being present in the final reads. We have compared several strategies of adapter trimming, including Trimmomatic palindromic mode and bbduk. Bbduk trimming resulted in the highest assembly contiguity and the fastest processing time.  
 
 <p align="center"><img src="https://github.com/apredeus/10k_genomes/blob/master/img/n50.png"></p>
-
-## Circular replicon rotation 
-
-In order to compare circular replicons (plasmids etc), one needs to make sure they start at the same position. Included script named **rotate_circular.sh** uses the position of a reference gene to rotate the circular chromosomes and plasmids. 

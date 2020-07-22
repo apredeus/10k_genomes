@@ -3,13 +3,14 @@
 #conda activate unicycler
 ## also need to have bbduk installed in the same env
 
-LIST=$1
-FQDIR=/pub37/alexp/data/10k_genomes/V3_merged_analysis/0_merged_fastq
-ADAPTERS=/pub37/alexp/bbmap/resources/adapters.fa
+WDIR=$1
+ADAPTERS=$2   ## look in bbmap installation - e.g. ~/bbmap/resources/adapters.fa
+LIST=sample.list
+FQDIR=$WDIR/0_merged_fastq
 
 if [[ $# < 1 ]]
 then
-  >&2 echo "Usage: ./all_unicycler.sh <barcode_list>"
+  >&2 echo "Usage: ./all_unicycler.sh <working dir>"
   exit 1
 fi
 

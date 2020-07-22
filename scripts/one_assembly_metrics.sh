@@ -1,12 +1,13 @@
 #!/bin/bash 
 
 ## calculate all assembly stats in one go
-## QC is only meaningful for Salmonella, Shigella and Ecoli here.
+## QC is only meaningful for Salmonella and needs to be customized for other species.
 
 ## Enterobase QC can be taken from here: https://enterobase.readthedocs.io/en/latest/pipelines/backend-pipeline-qaevaluation.html
+## TAG=barcode
 
 TAG=$1
-WDIR=/pub37/alexp/data/10k_genomes/V3_merged_analysis
+WDIR=$2
 
 KR_SP=`grep -v kraken_assigned_reads $WDIR/1_kraken2/bracken/$TAG.bracken.out | sort -t$'\t' -k7,7nr | head -n 1 | awk -F "\t" '{print $1}'`
 KR_PT=`grep -v kraken_assigned_reads $WDIR/1_kraken2/bracken/$TAG.bracken.out | sort -t$'\t' -k7,7nr | head -n 1 | awk -F "\t" '{printf "%.2f\n",100*$7}'`

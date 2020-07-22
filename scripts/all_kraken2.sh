@@ -3,14 +3,15 @@
 #conda activate kraken2
 ## also need to have bracken installed in the same env - conda works 
 
-LIST=$1
-DB=/pub37/alexp/reference/Kraken2/minikraken2_v2_8GB_201904_UPDATE
-KMER=/pub37/alexp/reference/Kraken2/database150mers.kmer_distrib
-FQDIR=/pub37/alexp/data/10k_genomes/V3_merged_analysis/0_merged_fastq
+WDIR=$1
+DB=$2  ### download masked minikraken2 db; we used minikraken2_v2_8GB_201904_UPDATE
+KMER=$3 ## database150mers.kmer_distrib - http://ccb.jhu.edu/software/kraken2/index.shtml?t=downloads
+FQDIR=$WDIR/0_merged_fastq
+LIST=sample.list
 
 if [[ $# < 1 ]]
 then
-  >&2 echo "Usage: ./all_kraken2.sh <barcode_list>"
+  >&2 echo "Usage: ./all_kraken2.sh <working dir>"
   exit 1
 fi
 
