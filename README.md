@@ -1,6 +1,10 @@
 # 10k Salmonella Genomes Project 
 
-Efficient data processing for [10k Salmonella genomes](https://10k-salmonella-genomes.com/) project
+Efficient data processing for [10k Salmonella genomes](https://10k-salmonella-genomes.com/) project.
+
+## Reference 
+
+Perez-Sepulveda BM, Heavens D, Pulford CV, Predeus AV *et al.*, [An accessible, efficient and global approach for the large-scale sequencing of bacterial genomes](https://www.biorxiv.org/content/10.1101/2020.07.22.200840v1), *bioRxiv* **2020**.
 
 ## Data description
 
