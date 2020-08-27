@@ -43,6 +43,28 @@ Choose a working directory (`$WDIR` variable in scripts) with plenty of space. W
 * 8\_final\_fasta
 * 9\_prokka
 
+## Dependency installation
+
+You can install all tools used by this pipeline with Bioconda. Following commands should help you install exact same versions of packages we have used in the paper: 
+
+```bash
+conda create -n 10k_salmonella
+source activate 10k_salmonella
+conda install kraken2=2.0.8_beta
+conda install unicycler=0.4.7
+conda install sistr_cmd=1.0.2
+conda install mlst=2.11 
+conda install bracken=1.0.0
+conda install bowtie2=2.3.5
+conda install samtools=1.9
+conda install picard=2.21.1
+conda install prokka=1.13.7
+conda install abricate=1.0.1
+```
+Also, you would need to download and install [BBtools](https://sourceforge.net/projects/bbmap/) v38.07.
+
+There's pretty good chance everything will work fine with other tool versions; known exceptions are `samtools` (version < 1), and old versions of `sistr_cmd` (different number of fields in the output file). 
+
 ## Parallel execution
 
 All scripts used here were dedicated to the execution of one task for one sample (e.g. *one_unicycler.sh*) had a parallel wrapper (*all_unicycler.sh* for this example). The number of parallel jobs should be adjusted according to the system that you are running these scripts on. 
